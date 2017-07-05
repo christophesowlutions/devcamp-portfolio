@@ -9,7 +9,7 @@
 #  updated_at  :datetime         not null
 #  author_name :string
 #  slug        :string
-#  status      :integer          default(0)
+#  status      :integer          default("draft")
 #  topic_id    :integer
 #
 

@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy] # Without using the before_action method, we would have to include the code present in set_blog method in each one of the spots in the array.
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status] # Without using the before_action method, we would have to include the code present in set_blog method in each one of the spots in the array.
   # So whenever we have identical code, it's best to put it in a method and use it in a before_action method such as above.
 
   # GET /blogs
@@ -7,7 +7,7 @@ class BlogsController < ApplicationController
   #Whenever we go to localhost:3000/blogs, this index action is what is referenced.
   def index
     @blogs = Blog.all
-    #@blogs = Blog.limit(1) would only show us Blog #1 or localhost:3000/blogs/1
+    #@blogs = Blog.limit(1) would only show us Blog #1 or localhos,t:3000/blogs/1
   end
 
   # GET /blogs/1
@@ -65,6 +65,16 @@ class BlogsController < ApplicationController
     end
   end
 
+  def toggle_status
+
+    if @blog.draft?
+      @blog.published!
+    elsif @blog.published?
+      @blog.draft!
+    end
+    redirect_to blogs_url, notice: 'Post status has been updated.'
+  end
+
   # DELETE /blogs/1
   # DELETE /blogs/1.json
   def destroy
@@ -78,7 +88,7 @@ class BlogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
-      @blog = Blog.find(params[:id])
+      @blog = Blog.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

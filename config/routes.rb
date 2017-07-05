@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :portfolios, except: [:show] # Bring all of the resource routes except show, so I cna create my own show action
-  get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show' # because otherwise it would still submit it as portfolios
+  resources :portfolios
+  #, except: [:show] # Bring all of the resource routes except show, so I cna create my own show action
+  #get 'portfolios/:id', to: 'portfolios#show', as: 'portfolio_show' # because otherwise it would still submit it as portfolios
   # Accept get reuest to get /pages/home. This will route to the home action in pages_controller.rb
 
   get 'about', to: 'pages#about'

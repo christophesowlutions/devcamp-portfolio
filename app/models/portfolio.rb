@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  title       :string
-#  subitle     :string
+#  subtitle    :string
 #  body        :text
 #  main_image  :text
 #  thumb_image :text
@@ -13,4 +13,5 @@
 #
 
 class Portfolio < ApplicationRecord
+  validates_presence_of :title, :body, :main_image, :thumb_image
 end

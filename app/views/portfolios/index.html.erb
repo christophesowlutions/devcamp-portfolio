@@ -1,14 +1,13 @@
-<h1>Portfo
-<p>---------------------------</p>
-<%= link_to "Create New Item", new_portfolio_path %>
+<%= render template: "layouts/application" %>
+<h1>Portfolio Item</h1>
+<div class="container">
 
-<% @portfolio_items.each do |portfolio_item| %>
-  <%= link_to "Edit Item", edit_portfolio_path(portfolio_item.id) %> <!--- portfolio_item.id is for us to tell it which portfolio to edit -->
-  <!-- We have to include method: :delete to tell rails that we want to delete, because by default, it gets -->
-  <%= link_to 'Delete Portfolio Item', portfolio_item, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <p><%=link_to portfolio_item.title, portfolio_show_path(portfolio_item.id) %></p>
-  <p><%= portfolio_item.subtitle %></p>
-  <p><%= portfolio_item.body %></p>
-  <img src="<%= portfolio_item.thumb_image %>" />
-  <p>---------------------------</p>
-<% end %>
+<%= link_to "Create New Item", new_portfolio_url %>
+<%= render partial: 'portfolio_item', collection: @portfolio_items %>
+</div>
+<!-- The reason why we wrote this render above instead of simply writing render @portfolio item is as follows:
+  When rendering partials and we create the partial class, rails is going to expect that the class name is going
+  to be the same as that of the model, being Portfolio. So since we have the model name as Portfolio, rails expects
+  that its partial is supposed to be called _portfolios, without taking into account that our collection is 
+  portfolio_items instead of portfolios, to that reason we have to inform rails that our collection has a different
+  name than what it is expecting -->

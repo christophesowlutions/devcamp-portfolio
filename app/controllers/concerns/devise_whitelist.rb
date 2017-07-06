@@ -2,7 +2,7 @@ module DeviseWhitelist
   extend ActiveSupport::Concern
 
   included do 
-     before_action :configure_permitted_parameters, if: :devise_controller? # This says I want to create a method and have it run anytime you're communicating with devise controller
+    before_action :configure_permitted_parameters, if: :devise_controller? # This says I want to create a method and have it run anytime you're communicating with devise controller
   end 
 
   def only_authenticated!

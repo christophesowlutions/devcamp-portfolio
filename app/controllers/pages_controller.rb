@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+  before_action :only_authenticated!, except: [:home]
+
+
   def home
     @posts = Blog.all
   end

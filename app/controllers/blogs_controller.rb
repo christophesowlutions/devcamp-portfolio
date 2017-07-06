@@ -2,6 +2,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status] # Without using the before_action method, we would have to include the code present in set_blog method in each one of the spots in the array.
   # So whenever we have identical code, it's best to put it in a method and use it in a before_action method such as above.
 
+  layout "blog"
   # GET /blogs
   # GET /blogs.json
   #Whenever we go to localhost:3000/blogs, this index action is what is referenced.

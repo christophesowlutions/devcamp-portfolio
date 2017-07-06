@@ -17,20 +17,12 @@
 
     <%= render "shared/nav", location: 'top' %>
     
-    <% if current_user %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Register", new_user_registration_path %>
-      <%= link_to "Login", new_user_session_path %> 
-    <% end %>
-
+    <%= login_helper %>
 
     <!-- If we remove yield, nothing will be yielded to the page -->
     <%= yield %>
 
-    <% if session[:source] %> # This will extract the srouce using the q query and this sentence will follow people everywhere they go
-    Thanks for visiting me from  <%= session[:source] %>
-    <% end %>
+
 
   </body>
 </html>

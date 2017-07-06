@@ -7,6 +7,7 @@ class BlogsController < ApplicationController
   #Whenever we go to localhost:3000/blogs, this index action is what is referenced.
   def index
     @blogs = Blog.all
+    @page_title = "Blog Section"
     #@blogs = Blog.limit(1) would only show us Blog #1 or localhos,t:3000/blogs/1
   end
 
@@ -14,9 +15,8 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   # This is going to show the particular blog post that we'd click on.
   def show
-    # The reason why this method is empty is because it goes to LINE 2, which gets the set_blog method down below.
-    # The code in the set_blog method will be [virtually] present in the show method due to the before_action method
-    # in line 2.
+    @page_title = @blog.title
+    @seo_keywords = @blog.body
   end
 
   # GET /blogs/new

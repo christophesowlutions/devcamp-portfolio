@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users # This created all kinds of routes for registration, log in, log out, etc.
   resources :portfolios
   #, except: [:show] # Bring all of the resource routes except show, so I cna create my own show action
   #get 'portfolios/:id', to: 'portfolios#show', as: 'portfolio_show' # because otherwise it would still submit it as portfolios

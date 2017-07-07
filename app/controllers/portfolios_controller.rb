@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-
+  before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
   layout 'portfolio'
   def index
     @portfolio_items = Portfolio.all # Call the model whch is inside the controller and make it available to the view
@@ -24,11 +24,9 @@ class PortfoliosController < ApplicationController
   end
 
   def edit
-    @portfolio_item = Portfolio.find(params[:id]) # This is looking into the parameters of the URI Pattern found by typing rake routes in the terminal
   end
 
   def update
-    @portfolio_item = Portfolio.find(params[:id])
 
     respond_to do |format|
 
@@ -41,11 +39,9 @@ class PortfoliosController < ApplicationController
   end
   
   def show
-    @portfolio_item = Portfolio.find(params[:id])
   end
 
   def destroy
-    @portfolio_item = Portfolio.find(params[:id])
 
     @portfolio_item.destroy
     respond_to do |format|
@@ -61,5 +57,9 @@ class PortfoliosController < ApplicationController
                                        technologies_attributes: [:name]
                                        )
   end
+
+ def set_portfolio_item
+ @portfolio_item = Portfolio.find(params[:id])
+ end
 
 end

@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <meta name="keywords" content="<%= @seo_keywords %>" />
 
     
@@ -15,19 +15,22 @@
   </head>
 
   <body>
+    <div class="site-wrapper">
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
 
 
-    <%= render "shared/nav", location: 'top' %>
+    <%= render "shared/application_nav" %>
     
     <%= login_helper %>
 
     <!-- If we remove yield, nothing will be yielded to the page -->
     <%= yield %>
 
-
-
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -16,9 +16,19 @@
 #  last_sign_in_ip        :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  roles                  :string
 #
 
 class User < ApplicationRecord
+  ############################################################################################
+  ## PeterGate Roles                                                                        ##
+  ## The :user role is added by default and shouldn't be included in this list.             ##
+  ## The :root_admin can access any page regardless of access settings. Use with caution!   ##
+  ## The multiple option can be set to true if you need users to have multiple roles.       ##
+  petergate(roles: [:admin, :editor], multiple: false)                                      ##
+  ############################################################################################ 
+ 
+
   # Include default devise modules. Others available are:
   # :confirmable --> When a user signs up, they need to confirm their email.
   # :lockable --> Lock a user out when they try to sign in unsuccessfully several times

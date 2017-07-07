@@ -1,6 +1,8 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
   layout 'portfolio'
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :edit, :update]}, site_admin: :all
+
   def index
     @portfolio_items = Portfolio.all # Call the model whch is inside the controller and make it available to the view
   end

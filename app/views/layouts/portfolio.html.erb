@@ -15,12 +15,12 @@
     <p class="alert"><%= alert %></p>
 
 
-    <%= login_helper %>
+    <%= login_helper 'nav-link'%>
 
     <!-- If we remove yield, nothing will be yielded to the page -->
     <%= yield %>
 
-    <%= render "shared/nav", location: 'top' %>
+    <%= render "shared/nav" %>
 
     <%= source_helper %>
 

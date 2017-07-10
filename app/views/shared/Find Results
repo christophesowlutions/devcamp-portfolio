@@ -1,0 +1,32 @@
+Searching 907 files for "navbar"
+
+/home/christophe/Desktop/udemytutorial/DevcampPortfolio/app/assets/stylesheets/portfolios.scss:
+    5  }
+    6  
+    7: .navbar {
+    8    margin-bottom: 0;
+    9  }
+
+/home/christophe/Desktop/udemytutorial/DevcampPortfolio/app/views/layouts/portfolio.html.erb:
+   17    <body>
+   18      <!-- If we remove yield, nothing will be yielded to the page -->
+   19:     <%= render 'shared/portfolio_nav' %>
+   20      <%= render 'shared/portfolio_masthead' unless logged_in?(:site_admin) %>
+   21  
+
+/home/christophe/Desktop/udemytutorial/DevcampPortfolio/app/views/shared/_portfolio_nav.html.erb:
+    1: <div class="collapse bg-inverse" id="navbarHeader">
+    2    <div class="container">
+    3      <div class="row">
+    .
+   21    </div>
+   22  </div>
+   23: <div class="navbar navbar-inverse bg-inverse">
+   24    <div class="container d-flex justify-content-between">
+   25:     <a href="#" class="navbar-brand">Portfolio</a>
+   26:     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+   27:       <span class="navbar-toggler-icon"></span>
+   28      </button>
+   29    </div>
+
+10 matches across 3 files

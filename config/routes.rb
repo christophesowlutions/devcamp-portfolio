@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :portfolios, except: [:show] do
     put :sort, on: :collection
   end
+  
   get 'portfolios/:id', to: 'portfolios#show', as: 'portfolio_show' # Get the route with /:id and map it to the #show action as portoflio_show
   #, except: [:show] # Bring all of the resource routes except show, so I cna create my own show action
   #get 'portfolios/:id', to: 'portfolios#show', as: 'portfolio_show' # because otherwise it would still submit it as portfolios

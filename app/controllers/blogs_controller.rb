@@ -7,7 +7,7 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   #Whenever we go to localhost:3000/blogs, this index action is what is referenced.
   def index
-    @blogs = Blog.all
+    @blogs = Blog.page(params[:page]).per(5)
     @page_title = "Blog Section"
     #@blogs = Blog.limit(1) would only show us Blog #1 or localhos,t:3000/blogs/1
   end

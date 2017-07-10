@@ -9,7 +9,7 @@ module ApplicationHelper
     end
   end
 
-  def source_helper
+  def source_helper(layout_name)
     # Definition could be as follows:
     # def source_helper (layout_name) and write if(layout_name = x) pass a design and if layout_name = y then pass another thing.
     if session[:source]

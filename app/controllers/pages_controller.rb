@@ -15,4 +15,5 @@ class PagesController < ApplicationController
   def hello
     @blogs = Blog.all
   end
+
 end

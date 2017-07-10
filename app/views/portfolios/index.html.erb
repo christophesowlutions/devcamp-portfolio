@@ -1,7 +1,8 @@
 <!--><%= render template: "layouts/application" %> -->
-  <div class="album text-muted">
-    <div class="container">
-      <div class="row">
+<div class="album text-muted">
+  <div class="container">
+    <div class="row">
+      <div class="row sortable">
 <%= link_to "Create New Item", new_portfolio_url if logged_in?(:site_admin) %>
 <%= render partial: 'portfolio_item', collection: @portfolio_items %>
 <!-- The reason why we wrote this render above instead of simply writing render @portfolio item is as follows:
@@ -10,7 +11,7 @@
   that its partial is supposed to be called _portfolios, without taking into account that our collection is 
   portfolio_items instead of portfolios, to that reason we have to inform rails that our collection has a different
   name than what it is expecting -->
-
       </div>
-    </div>  
-  </div>
+    </div>
+  </div>  
+</div>

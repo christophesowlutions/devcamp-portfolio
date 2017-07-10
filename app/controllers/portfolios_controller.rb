@@ -9,8 +9,8 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio_item = Portfolio.new
-    3.times { @portfolio_item.technologies.build } # This is going to instantiate three versions of portfolio_item with technologies
-
+   
+ 
   end
 
   def create

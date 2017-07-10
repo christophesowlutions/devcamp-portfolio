@@ -1,13 +1,16 @@
-<%= render template: "layouts/application" %>
-<h1>Portfolio Item</h1>
-<div class="container">
-
+<!--><%= render template: "layouts/application" %> -->
+  <div class="album text-muted">
+    <div class="container">
+      <div class="row">
 <%= link_to "Create New Item", new_portfolio_url if logged_in?(:site_admin) %>
 <%= render partial: 'portfolio_item', collection: @portfolio_items %>
-</div>
 <!-- The reason why we wrote this render above instead of simply writing render @portfolio item is as follows:
   When rendering partials and we create the partial class, rails is going to expect that the class name is going
   to be the same as that of the model, being Portfolio. So since we have the model name as Portfolio, rails expects
   that its partial is supposed to be called _portfolios, without taking into account that our collection is 
   portfolio_items instead of portfolios, to that reason we have to inform rails that our collection has a different
   name than what it is expecting -->
+
+      </div>
+    </div>  
+  </div>

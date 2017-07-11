@@ -16,4 +16,8 @@ class PagesController < ApplicationController
     @blogs = Blog.all
   end
 
+  def tech_news
+    @tweets = SocialTool.twitter_search
+  end
+
 end

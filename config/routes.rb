@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get 'pages/hello'
 
+  get 'tech-news', to: 'pages#tech_news' 
+
 
   resources :blogs do
     member do

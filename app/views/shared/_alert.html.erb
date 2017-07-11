@@ -1,0 +1,7 @@
+<% if flash[:alert] %> <!-- Session has a flash parameter. Yjr "noyivr" values in the controller are the params that will go into flash -->
+  <%= js add_gritter(flash[:alert], :title => "Attention", sticky: false) %> <!-- So whatever is in notice will go in the place of flash[:alert] -->
+<% elseif flash[:error] %>
+  <%= js add_gritter(flash[:alert], :title => "Attention", sticky: false) %>
+<% else flash[:error] %>
+  <%= js add_gritter(flash[:notice], :title => "Attention", sticky: false) %>
+<% end %>

@@ -1,4 +1,8 @@
 <%= form_for(@portfolio_item) do |f| %>
+  <% if blog.errors.any? %>
+    <% blog.errors.full_messages.each do |error| %> <!-- If there are any errors, do everythng in this block for as many errors as possibl -->
+      <%= js add_gritter(error, title: "Error") %>
+   <% end %>
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">

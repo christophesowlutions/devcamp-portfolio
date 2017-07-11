@@ -205,3 +205,17 @@ body {
   background: black;
   background-size: cover;
 }
+
+.tech-news {
+  color: black;
+  margin: 20px;
+
+}
+
+.tech-news > .card {
+  padding: 30px;
+}
+
+.tech-news a{
+  color: green;
+}

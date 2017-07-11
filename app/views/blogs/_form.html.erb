@@ -26,7 +26,7 @@
  <%= form_with(model: blog, local: true) do |form| %>
    <% if blog.errors.any? %>
     <% blog.errors.full_messages.each do |error| %> <!-- If there are any errors, do everythng in this block for as many errors as possibl -->
-      <%= js add_gritter(error, title: "Error") %>
+      <%= alert_generator error %>
    <% end %>
  <% end %>
 

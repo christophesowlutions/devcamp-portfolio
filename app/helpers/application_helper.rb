@@ -60,4 +60,17 @@ module ApplicationHelper
   def active? path
     "active" if current_page? path # Return "active" if the current page tha we are on matches whatever path we passed into this method.
   end
+
+  def alerts
+    alert = (flash[:alert] || flash[:error] || flash[:notice])
+
+    if alert
+       
+    end
+  end
+
+  def alert_generator msg
+    js add_gritter(msg, :title => "Attention", sticky: false) # So the alert will go into the msg variable and be displayed.
+  end
 end
+

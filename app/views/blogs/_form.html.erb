@@ -1,27 +1,52 @@
-<%= form_with(model: blog, local: true) do |form| %>
-  <% if blog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
-
-      <ul>
-      <% blog.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<!--<%= form_tag(blogs_path) do%>
   <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: 'form-control' %>
+    <%= label_tag 'blog[title]' %>
+    <%= text_field_tag 'blog[title]', nil, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :body %>
-    <%= form.text_area :body, class: 'form-control', rows: 40 %>
+    <%= label_tag 'blog[subtitle]' %>
+    <%= text_field_tag 'blog[subtitle]', nil, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= form.submit "Create", class: 'btn btn-primary' %>
+    <%= label_tag 'blod[body]' %>
+    <%= text_area_tag 'blog[body]', nil, class: 'form-control' %> <!-- We need to use blog[x] because rails will expect a hash form in the case of form_tag
+    Also, instead of editing, form_tag will create a new instance because it has the method post instead of put. To this reason, form_tag is not used here, rather form_for. form_tags wowuld be used for applications like search engines and any other application that does not require saving/editing, etc.  
   </div>
-<% end %>
+
+  <div class="form-group">
+    <%= submit_tag 'Save', class: 'btn btn-primary' %>
+    <%= text_field_tag 'title', nil, class: 'form-control' %>
+  </div> 
+
+  <% end %> -->
+
+
+ <%= form_with(model: blog, local: true) do |form| %>
+   <% if blog.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+       <ul>
+       <% blog.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+       </ul>
+     </div>
+   <% end %>
+
+   <div class="form-group">
+     <!-- <%= form.label :title %> -->
+     <%= form.text_field :title, class: 'form-control', placeholder: 'Title' %>
+   </div>
+
+   <div class="form-group">
+     <!-- <%= form.label :body %> -->
+     <%= form.text_area :body, class: 'form-control', rows: 40, placeholder: 'Body' %>
+   </div>
+
+   <div class="form-group">
+     <%= form.submit "Create", class: 'btn btn-primary' %>
+   </div>
+ <% end %>
